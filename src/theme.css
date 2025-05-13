@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root theme */
+:root {
+  --radius: @theme(borderRadius.lg);
+
+  --background: @theme(colors.white);
+  --foreground: @theme(colors.zinc.900);
+
+  --primary: @theme(colors.blue.600);
+  --primary-foreground: @theme(colors.white);
+
+  --muted: @theme(colors.zinc.100);
+  --muted-foreground: @theme(colors.zinc.500);
+
+  --border: @theme(colors.zinc.200);
+  --input: @theme(colors.zinc.100);
+  --card: @theme(colors.white);
+  --card-foreground: @theme(colors.zinc.900);
+}
+
+/* Optional dark mode */
+.dark {
+  --background: @theme(colors.zinc.900);
+  --foreground: @theme(colors.zinc.100);
+
+  --primary: @theme(colors.blue.400);
+  --primary-foreground: @theme(colors.zinc.900);
+
+  --muted: @theme(colors.zinc.800);
+  --muted-foreground: @theme(colors.zinc.400);
+
+  --card: @theme(colors.zinc.800);
+  --card-foreground: @theme(colors.zinc.100);
+}
