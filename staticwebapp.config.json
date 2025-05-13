@@ -1,0 +1,13 @@
+{
+    "routes": [
+      {
+        "route": "/",
+        "rewrite": "/remoteEntry.js"
+      },
+      {
+        "route": "/index.html",
+        "rewrite": "/remoteEntry.js"
+      }
+    ]
+  }
+  

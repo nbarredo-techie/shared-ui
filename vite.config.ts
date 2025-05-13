@@ -7,24 +7,25 @@ export default defineConfig({
     react(),
     federation({
       name: 'shared-ui',
-      filename: 'remoteEntry.js',
+      filename: '../remoteEntry.js', // ✅ forces output to dist/remoteEntry.js
       exposes: {
-        './theme': './src/theme.css'
+        './theme': './src/index.ts' // ✅ expose a JS file that references theme.css
       },
       shared: ['react', 'react-dom']
     }),
   ],
   build: {
-    lib: {
-      entry: 'src/entry.ts',
-      formats: ['es']
-    },
     target: 'esnext',
     modulePreload: false,
     rollupOptions: {
+      input: 'src/entry.ts', // 
       output: {
-        format: 'system'
+        format: 'system',
+        entryFileNames: '[name].js', //  
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash][extname]'
       }
     }
-  },
+  }
+  
 });
