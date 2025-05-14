@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     federation({
       name: 'shared_ui',
-      filename: '../remoteEntry.js',
+      filename: './../remoteEntry.js',
       exposes: {
         './theme': './src/theme.css',
         './components': './src/index.ts'
