@@ -6,26 +6,28 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: 'shared-ui',
-      filename: '../remoteEntry.js', // ✅ forces output to dist/remoteEntry.js
+      name: 'shared_ui',
+      filename: 'remoteEntry.js',
       exposes: {
-        './theme': './src/index.ts' // ✅ expose a JS file that references theme.css
+        './theme': './src/theme.css',
+        './components': './src/index.ts'
       },
       shared: ['react', 'react-dom']
     }),
-  ],
-  build: {
+  ],  build: {
     target: 'esnext',
     modulePreload: false,
+    minify: false, // Helps with debugging
+    cssCodeSplit: false, // Prevents CSS code splitting which can cause issues in micro frontends
     rollupOptions: {
-      input: 'src/entry.ts', // 
+      input: './src/entry.ts', // Specify the entry point explicitly
+      preserveEntrySignatures: 'strict',
       output: {
         format: 'system',
-        entryFileNames: '[name].js', //  
+        entryFileNames: '[name].js',
         chunkFileNames: 'assets/[name].[hash].js',
         assetFileNames: 'assets/[name].[hash][extname]'
       }
     }
   }
-  
 });

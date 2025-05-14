@@ -11,12 +11,18 @@ importers:
       '@originjs/vite-plugin-federation':
         specifier: ^1.4.1
         version: 1.4.1
+      '@types/single-spa-react':
+        specifier: ^4.0.0
+        version: 4.0.0(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react@19.1.0)
       react:
         specifier: ^19.1.0
         version: 19.1.0
       react-dom:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
+      single-spa-react:
+        specifier: ^6.0.2
+        version: 6.0.2(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react@19.1.0)
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4.1.6
@@ -506,6 +512,10 @@ packages:
   '@types/react@19.1.4':
     resolution: {integrity: sha512-EB1yiiYdvySuIITtD5lhW4yPyJ31RkJkkDw794LaQYrxCSaQV/47y5o1FMC4zF9ZyjUjzJMZwbovEnT5yHTW6g==}
 
+  '@types/single-spa-react@4.0.0':
+    resolution: {integrity: sha512-+htuHjgux1Q2J71OGd8/GVvOPVEFFxC8ML4qjr0hppKySUzGLld/O7KbiMOOVVG4gOVBnghsjjHZYlUFLFhKTQ==}
+    deprecated: This is a stub types definition. single-spa-react provides its own type definitions, so you do not need this installed.
+
   '@vitejs/plugin-react-swc@3.9.0':
     resolution: {integrity: sha512-jYFUSXhwMCYsh/aQTgSGLIN3Foz5wMbH9ahb0Zva//UzwZYbMiZd7oT3AU9jHT9DLswYDswsRwPU9jVF3yA48Q==}
     peerDependencies:
@@ -517,6 +527,9 @@ packages:
     hasBin: true
     peerDependencies:
       postcss: ^8.1.0
+
+  browserslist-config-single-spa@1.0.1:
+    resolution: {integrity: sha512-nqOxTbatv6FcdgBvUTuH4MuojMZwvskspz5Y4dmpVcKd0uaQY8KEl3iALWus16+AwPVe3BIerBNEgELyaHZcQg==}
 
   browserslist@4.24.5:
     resolution: {integrity: sha512-FDToo4Wo82hIdgc1CQ+NQD0hEhmpPjrZ3hiUgwgOG6IuTdlpr8jdjyG24P6cNP1yJpTLzS5OcGgSw0xmDU1/Tw==}
@@ -705,6 +718,18 @@ packages:
 
   scheduler@0.26.0:
     resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
+
+  single-spa-react@6.0.2:
+    resolution: {integrity: sha512-nRz5Izf57iYZXMXdTh+RmHnxxQojFL8NCIVUyA7PpXRib1ykmbat6JgT3yFPgXRs129BCC4+j+O5TLQOmLzF4Q==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: '*'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -1084,6 +1109,14 @@ snapshots:
     dependencies:
       csstype: 3.1.3
 
+  '@types/single-spa-react@4.0.0(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react@19.1.0)':
+    dependencies:
+      single-spa-react: 6.0.2(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react@19.1.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+      - react
+
   '@vitejs/plugin-react-swc@3.9.0(vite@6.3.5(jiti@2.4.2)(lightningcss@1.29.2))':
     dependencies:
       '@swc/core': 1.11.24
@@ -1100,6 +1133,8 @@ snapshots:
       picocolors: 1.1.1
       postcss: 8.5.3
       postcss-value-parser: 4.2.0
+
+  browserslist-config-single-spa@1.0.1: {}
 
   browserslist@4.24.5:
     dependencies:
@@ -1283,6 +1318,14 @@ snapshots:
       fsevents: 2.3.3
 
   scheduler@0.26.0: {}
+
+  single-spa-react@6.0.2(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react@19.1.0):
+    dependencies:
+      browserslist-config-single-spa: 1.0.1
+      react: 19.1.0
+    optionalDependencies:
+      '@types/react': 19.1.4
+      '@types/react-dom': 19.1.5(@types/react@19.1.4)
 
   source-map-js@1.2.1: {}
 
