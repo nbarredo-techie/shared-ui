@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import federation from '@originjs/vite-plugin-federation';
 import { resolve, dirname } from 'path'; 
 import { fileURLToPath } from 'url';
 
@@ -12,44 +11,27 @@ export default defineConfig({
       '@': resolve(__dirname, './src')
     }
   },
-  plugins: [
-    react(),
-    federation({
-      name: 'shared_ui',
-      filename: 'remoteEntry.js', // Keep it in the build directory
-      exposes: {
-        './theme': './src/theme.ts',
-        './components': './src/index.ts'
-      },
-      shared: {
-        react: { 
-          requiredVersion: '^19.0.0',
-          import: false
-        },
-        'react-dom': { 
-          requiredVersion: '^19.0.0',
-          import: false
-        }, 
-        'tailwindcss': {
-          requiredVersion: '^4.0.0',
-          import: false
-        }
-      }
-    }),
-  ],
   build: {
     target: 'esnext',
-    modulePreload: false,
     minify: false, // Helps with debugging
-    cssCodeSplit: false, // Prevents CSS code splitting which can cause issues in micro frontends
+    cssCodeSplit: false, // Keeps CSS in a single file
+    lib: {
+      entry: resolve(__dirname, 'src/index.ts'),
+      name: 'SharedUI',
+      fileName: (format) => `shared-ui.${format}.js`,
+      formats: ['es', 'umd']
+    },
     rollupOptions: {
-      input: './src/entry.ts', // Specify the entry point explicitly
-      preserveEntrySignatures: 'strict',
+      // Make sure to externalize deps that shouldn't be bundled
+      external: ['react', 'react-dom'],
       output: {
-        format: 'system',
-        entryFileNames: '[name].js',
-        chunkFileNames: 'assets/[name].[hash].js',
-        assetFileNames: 'assets/[name].[hash][extname]'
+        // Global variables to use in UMD build for externalized deps
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM'
+        },
+        // Ensures our component library is optimized for single-spa
+        manualChunks: undefined
       }
     }
   }
