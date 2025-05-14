@@ -18,7 +18,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'SharedUI',
-      fileName: (format) => `shared-ui.${format}.js`,
+      fileName: (format) => `shared-ui.js`,
       formats: ['system']
     },
     rollupOptions: {
