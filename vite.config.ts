@@ -1,8 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import federation from '@originjs/vite-plugin-federation';
+import { resolve } from 'path';
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src')
+    }
+  },
   plugins: [
     react(),
     federation({
@@ -24,7 +30,7 @@ export default defineConfig({
         'tailwindcss': {
           requiredVersion: '^4.0.0',
           import: false
-        } 
+        },
       }
     }),
   ],
