@@ -12,9 +12,35 @@ export default defineConfig({
         './theme': './src/theme.css',
         './components': './src/index.ts'
       },
-      shared: ['react', 'react-dom']
+      shared: {
+        react: { 
+          requiredVersion: '^19.0.0',
+          import: false
+        },
+        'react-dom': { 
+          requiredVersion: '^19.0.0',
+          import: false
+        }, 
+        'tailwindcss': {
+          requiredVersion: '^4.0.0',
+          import: false
+        },
+        'class-variance-authority': {
+          requiredVersion: '^0.7.0',
+          import: false
+        },
+        'clsx': {
+          requiredVersion: '^2.0.0',
+          import: false
+        },
+        'tailwind-merge': {
+          requiredVersion: '^3.0.0',
+          import: false
+        }
+      }
     }),
-  ],  build: {
+  ],
+  build: {
     target: 'esnext',
     modulePreload: false,
     minify: false, // Helps with debugging
