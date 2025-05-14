@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import federation from '@originjs/vite-plugin-federation';
-import { resolve,dirname } from 'path'; 
+import { resolve, dirname } from 'path'; 
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -16,7 +16,7 @@ export default defineConfig({
     react(),
     federation({
       name: 'shared_ui',
-      filename: './../remoteEntry.js',
+      filename: 'remoteEntry.js', // Keep it in the build directory
       exposes: {
         './theme': './src/theme.css',
         './components': './src/index.ts'
@@ -33,7 +33,7 @@ export default defineConfig({
         'tailwindcss': {
           requiredVersion: '^4.0.0',
           import: false
-        },
+        }
       }
     }),
   ],
