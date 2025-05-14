@@ -18,7 +18,7 @@ export default defineConfig({
       name: 'shared_ui',
       filename: 'remoteEntry.js', // Keep it in the build directory
       exposes: {
-        './theme': './src/theme.css',
+        './theme': './src/theme.ts',
         './components': './src/index.ts'
       },
       shared: {
