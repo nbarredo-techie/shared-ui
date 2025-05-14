@@ -24,19 +24,7 @@ export default defineConfig({
         'tailwindcss': {
           requiredVersion: '^4.0.0',
           import: false
-        },
-        'class-variance-authority': {
-          requiredVersion: '^0.7.0',
-          import: false
-        },
-        'clsx': {
-          requiredVersion: '^2.0.0',
-          import: false
-        },
-        'tailwind-merge': {
-          requiredVersion: '^3.0.0',
-          import: false
-        }
+        } 
       }
     }),
   ],
