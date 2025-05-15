@@ -17,7 +17,7 @@ export default defineConfig({
     cssCodeSplit: false, // Keeps CSS in a single file
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'SharedUI',
+      name: 'shared-ui',
       fileName: (format) => `shared-ui.js`,
       formats: ['system']
     },
