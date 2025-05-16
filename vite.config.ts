@@ -1,38 +1,40 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import { resolve, dirname } from 'path'; 
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
+import singleSpa from 'vite-plugin-single-spa';
+import path from 'path'; 
 
 export default defineConfig({
+  plugins: [
+    react(), 
+    singleSpa({
+      type: 'mife', 
+      serverPort: 5173,
+      spaEntryPoints: './src/shared-ui.tsx', 
+    }),
+  ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src')
-    }
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+  server: {
+    port: 5173,
+    cors: {
+      origin: '*',
+      methods: ['GET'],
+    },
   },
   build: {
+    
     target: 'esnext',
-    minify: false, // Helps with debugging
-    cssCodeSplit: false, // Keeps CSS in a single file
-    lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      name: 'shared-ui',
-      fileName: (format) => `shared-ui.js`,
-      formats: ['system']
-    },
-    rollupOptions: {
-      // Make sure to externalize deps that shouldn't be bundled
-      external: ['react', 'react-dom'],
+    cssCodeSplit: false,
+    modulePreload: false,
+    minify: false,
+    rollupOptions: { 
       output: {
-        // Global variables to use in UMD build for externalized deps
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM'
-        },
-        // Ensures our component library is optimized for single-spa
-        manualChunks: undefined
-      }
-    }
-  }
+        format: 'system', 
+        preserveModules: false, // important to avoid multiple chunks
+      },
+    },
+  },
 });

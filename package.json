@@ -31,6 +31,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "single-spa-react": "^6.0.2",
-    "tailwind-merge": "^3.3.0"
+    "tailwind-merge": "^3.3.0",
+    "vite-plugin-single-spa": "^1.0.0"
   }
 }

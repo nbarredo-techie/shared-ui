@@ -38,6 +38,9 @@ importers:
       tailwind-merge:
         specifier: ^3.3.0
         version: 3.3.0
+      vite-plugin-single-spa:
+        specifier: ^1.0.0
+        version: 1.0.0(vite@6.3.5(@types/node@22.15.18)(jiti@2.4.2)(lightningcss@1.29.2))
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4.1.6
@@ -825,6 +828,11 @@ packages:
     peerDependencies:
       browserslist: '>= 4.21.0'
 
+  vite-plugin-single-spa@1.0.0:
+    resolution: {integrity: sha512-9HbXQZi5jZEWovm2YHJVMk54QNyYRClcDaZqWqf8AKQ3I3F66U//RIo/KFCApGueiFyNcQqPJ8BBFXC3jqRmzg==}
+    peerDependencies:
+      vite: ^5.0.0 || ^6.0.0
+
   vite@6.3.5:
     resolution: {integrity: sha512-cZn6NDFE7wdTpINgs++ZJ4N49W2vRp8LCKrn3Ob1kYNtOo21vfDoaV5GzBfLU4MovSAB8uNRm4jgzVQZ+mBzPQ==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
@@ -1450,6 +1458,10 @@ snapshots:
       browserslist: 4.24.5
       escalade: 3.2.0
       picocolors: 1.1.1
+
+  vite-plugin-single-spa@1.0.0(vite@6.3.5(@types/node@22.15.18)(jiti@2.4.2)(lightningcss@1.29.2)):
+    dependencies:
+      vite: 6.3.5(@types/node@22.15.18)(jiti@2.4.2)(lightningcss@1.29.2)
 
   vite@6.3.5(@types/node@22.15.18)(jiti@2.4.2)(lightningcss@1.29.2):
     dependencies:
