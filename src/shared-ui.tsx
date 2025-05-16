@@ -1,11 +1,7 @@
 // Export theme
 export * from './theme.css';
 
-// Export shadcn components
-export * from './components/ui/button';
 
-// Export utility functions used by components
-export { cn } from './lib/utils';
 import './theme.css';
 import singleSpaReact from 'single-spa-react';
 import React from 'react';

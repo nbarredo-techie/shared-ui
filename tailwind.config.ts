@@ -1,24 +1,15 @@
-import type { Config } from 'tailwindcss'
+import { heroui } from "@heroui/react";
 
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    './src/**/*.{ts,tsx}',
-    './index.html'
+    // ...
+    // make sure it's pointing to the ROOT node_module
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      borderRadius: {
-        lg: '0.5rem',
-      },
-      colors: {
-        primary: {
-          DEFAULT: '#2563eb',
-          foreground: '#ffffff'
-        },
-      }
-    }
+    extend: {},
   },
-  plugins: []
-}
-
-export default config
+  darkMode: "class",
+  plugins: [heroui()],
+};
