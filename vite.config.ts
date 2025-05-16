@@ -25,15 +25,19 @@ export default defineConfig({
     },
   },
   build: {
-    
     target: 'esnext',
     cssCodeSplit: false,
     modulePreload: false,
     minify: false,
-    rollupOptions: { 
+    rollupOptions: {
+      external: ['react', 'react-dom'], // Ensure React is not bundled
       output: {
-        format: 'system', 
+        format: 'system',
         preserveModules: false, // important to avoid multiple chunks
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
       },
     },
   },
