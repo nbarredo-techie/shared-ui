@@ -1,12 +1,13 @@
 // Export theme
 export * from './theme.css';
-
-
+ 
 import './theme.css';
 import singleSpaReact from 'single-spa-react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import RootComponent from './root.component';
+
+export { Button } from '@rewind-ui/core';
 
 const lifecycles = singleSpaReact({
   React,

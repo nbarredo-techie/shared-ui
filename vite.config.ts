@@ -38,6 +38,9 @@ export default defineConfig({
       output: {
         format: 'es', // Changed from 'system'
         preserveModules: false, // important to avoid multiple chunks
+        globals: {
+          '@rewind-ui/core': 'RewindUI',
+        },
       },
     },
   },
