@@ -1,7 +1,7 @@
 // Export theme
-export * from './theme.css';
  
-import './theme.css';
+ 
+import './tailwind.css';
 import singleSpaReact from 'single-spa-react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';

@@ -34,7 +34,7 @@ export default defineConfig({
     modulePreload: false,
     minify: false,
     rollupOptions: {
-      external: ['react', 'react-dom'], // Ensure React is not bundled
+      external: ['react', 'react-dom', '@rewind-ui/core'], // Ensure React is not bundled
       output: {
         format: 'es', // Changed from 'system'
         preserveModules: false, // important to avoid multiple chunks
