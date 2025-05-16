@@ -13,7 +13,7 @@ importers:
         version: 1.4.1
       '@radix-ui/react-slot':
         specifier: ^1.2.2
-        version: 1.2.2(@types/react@19.1.4)(react@19.1.0)
+        version: 1.2.2(@types/react@19.1.4)(react@19.0.0)
       '@tailwindcss/vite':
         specifier: ^4.1.6
         version: 4.1.6(vite@6.3.5(@types/node@22.15.18)(jiti@2.4.2)(lightningcss@1.29.2))
@@ -25,16 +25,16 @@ importers:
         version: 2.1.1
       lucide-react:
         specifier: ^0.510.0
-        version: 0.510.0(react@19.1.0)
+        version: 0.510.0(react@19.0.0)
       react:
-        specifier: ^19.1.0
-        version: 19.1.0
+        specifier: 19.0.0
+        version: 19.0.0
       react-dom:
-        specifier: ^19.1.0
-        version: 19.1.0(react@19.1.0)
+        specifier: 19.0.0
+        version: 19.0.0(react@19.0.0)
       single-spa-react:
         specifier: ^6.0.2
-        version: 6.0.2(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react@19.1.0)
+        version: 6.0.2(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react@19.0.0)
       tailwind-merge:
         specifier: ^3.3.0
         version: 3.3.0
@@ -760,13 +760,13 @@ packages:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
     engines: {node: ^10 || ^12 || >=14}
 
-  react-dom@19.1.0:
-    resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
+  react-dom@19.0.0:
+    resolution: {integrity: sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==}
     peerDependencies:
-      react: ^19.1.0
+      react: ^19.0.0
 
-  react@19.1.0:
-    resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
+  react@19.0.0:
+    resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
     engines: {node: '>=0.10.0'}
 
   rollup@4.40.2:
@@ -774,8 +774,8 @@ packages:
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
-  scheduler@0.26.0:
-    resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
+  scheduler@0.25.0:
+    resolution: {integrity: sha512-xFVuu11jh+xcO7JOAGJNOXld8/TcEHK/4CituBUeUb5hqxJLj9YuemAEuvm9gQ/+pgXYfbQuqAkiYu+u7YEsNA==}
 
   single-spa-react@6.0.2:
     resolution: {integrity: sha512-nRz5Izf57iYZXMXdTh+RmHnxxQojFL8NCIVUyA7PpXRib1ykmbat6JgT3yFPgXRs129BCC4+j+O5TLQOmLzF4Q==}
@@ -987,16 +987,16 @@ snapshots:
       estree-walker: 3.0.3
       magic-string: 0.27.0
 
-  '@radix-ui/react-compose-refs@1.1.2(@types/react@19.1.4)(react@19.1.0)':
+  '@radix-ui/react-compose-refs@1.1.2(@types/react@19.1.4)(react@19.0.0)':
     dependencies:
-      react: 19.1.0
+      react: 19.0.0
     optionalDependencies:
       '@types/react': 19.1.4
 
-  '@radix-ui/react-slot@1.2.2(@types/react@19.1.4)(react@19.1.0)':
+  '@radix-ui/react-slot@1.2.2(@types/react@19.1.4)(react@19.0.0)':
     dependencies:
-      '@radix-ui/react-compose-refs': 1.1.2(@types/react@19.1.4)(react@19.1.0)
-      react: 19.1.0
+      '@radix-ui/react-compose-refs': 1.1.2(@types/react@19.1.4)(react@19.0.0)
+      react: 19.0.0
     optionalDependencies:
       '@types/react': 19.1.4
 
@@ -1344,9 +1344,9 @@ snapshots:
       lightningcss-win32-arm64-msvc: 1.29.2
       lightningcss-win32-x64-msvc: 1.29.2
 
-  lucide-react@0.510.0(react@19.1.0):
+  lucide-react@0.510.0(react@19.0.0):
     dependencies:
-      react: 19.1.0
+      react: 19.0.0
 
   magic-string@0.27.0:
     dependencies:
@@ -1382,12 +1382,12 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  react-dom@19.1.0(react@19.1.0):
+  react-dom@19.0.0(react@19.0.0):
     dependencies:
-      react: 19.1.0
-      scheduler: 0.26.0
+      react: 19.0.0
+      scheduler: 0.25.0
 
-  react@19.1.0: {}
+  react@19.0.0: {}
 
   rollup@4.40.2:
     dependencies:
@@ -1415,12 +1415,12 @@ snapshots:
       '@rollup/rollup-win32-x64-msvc': 4.40.2
       fsevents: 2.3.3
 
-  scheduler@0.26.0: {}
+  scheduler@0.25.0: {}
 
-  single-spa-react@6.0.2(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react@19.1.0):
+  single-spa-react@6.0.2(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react@19.0.0):
     dependencies:
       browserslist-config-single-spa: 1.0.1
-      react: 19.1.0
+      react: 19.0.0
     optionalDependencies:
       '@types/react': 19.1.4
       '@types/react-dom': 19.1.5(@types/react@19.1.4)

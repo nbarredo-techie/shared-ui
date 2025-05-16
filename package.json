@@ -28,8 +28,8 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.510.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "single-spa-react": "^6.0.2",
     "tailwind-merge": "^3.3.0",
     "vite-plugin-single-spa": "^1.0.0"
