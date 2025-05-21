@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import singleSpa from 'vite-plugin-single-spa';
+// import singleSpa from 'vite-plugin-single-spa'; removed
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -10,11 +10,11 @@ const __dirname = dirname(__filename);
 export default defineConfig({
   plugins: [
     react(), 
-    singleSpa({
-      type: 'mife', 
-      serverPort: 5173,
-      spaEntryPoints: './src/shared-ui.tsx', 
-    }),
+    // singleSpa({ // removed
+    //   type: 'mife', 
+    //   serverPort: 5173,
+    //   spaEntryPoints: './src/shared-ui.tsx', 
+    // }),
   ],
   resolve: {
     alias: {
@@ -34,6 +34,7 @@ export default defineConfig({
     modulePreload: false,
     minify: false,
     rollupOptions: {
+      input: 'src/shared-ui.tsx', // Added entry point
       external: ['react', 'react-dom'], // Ensure React is not bundled
       output: {
         format: 'system', // Changed from 'es'
