@@ -36,7 +36,7 @@ export default defineConfig({
     rollupOptions: {
       external: ['react', 'react-dom'], // Ensure React is not bundled
       output: {
-        format: 'es', // Changed from 'system'
+        format: 'system', // Changed from 'es'
         preserveModules: false, // important to avoid multiple chunks
         globals: {
           '@rewind-ui/core': 'RewindUI',
