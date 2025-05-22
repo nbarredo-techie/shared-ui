@@ -1,5 +1,6 @@
 import "./input.css";
+import { Button } from "./terraboost-shared-ui";
 
 export default function Root(props) {
-  return <section>{props.name} is mounted!</section>;
+  return <Button>{props.name} is mounted!</Button>;
 }

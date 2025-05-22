@@ -11,12 +11,37 @@ module.exports = (webpackConfigEnv, argv) => {
     outputSystemJS: false,
   });
 
-  return merge(defaultConfig, {
-    // modify the webpack config however you'd like to by adding to this object
+  return {
+    ...defaultConfig,
     resolve: {
+      ...defaultConfig.resolve,
       alias: {
+        ...defaultConfig.resolve?.alias,
         "@": path.resolve(__dirname, "src"),
       },
     },
-  });
+    module: {
+      ...defaultConfig.module,
+      rules: [
+        ...(defaultConfig.module?.rules?.filter(
+          (rule) => !rule.test || !rule.test.toString().includes("css")
+        ) || []),
+        {
+          test: /\.css$/i,
+          use: [
+            "style-loader",
+            "css-loader",
+            {
+              loader: "postcss-loader",
+              options: {
+                postcssOptions: {
+                  config: path.resolve(__dirname, "postcss.config.js"),
+                },
+              },
+            },
+          ],
+        },
+      ],
+    },
+  };
 };
