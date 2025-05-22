@@ -1,33 +1,14 @@
 {
+  "extends": "ts-config-single-spa",
   "compilerOptions": {
     "jsx": "react-jsx",
+    "declarationDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
-    },
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-
-    /* Custom types */
-    "typeRoots": ["./node_modules/@types", "./src/custom.d.ts"]
+      "@/*": ["src/*"]
+    }
   },
-  "include": ["src"]
+  "files": ["src/terraboost-shared-ui.tsx"],
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test*"]
 }

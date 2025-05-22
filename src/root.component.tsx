@@ -1,6 +1,5 @@
+import "./output.css";
 
-export default function Root() {
-  return (
-    <>  </>
-  );
+export default function Root(props) {
+  return <section>{props.name} is mounted!</section>;
 }
