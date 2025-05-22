@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "types": ["node"],
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
@@ -25,7 +24,10 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Custom types */
+    "typeRoots": ["./node_modules/@types", "./src/custom.d.ts"]
   },
   "include": ["src"]
 }

@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - webpack
 
 jobs:
   build-and-deploy:
