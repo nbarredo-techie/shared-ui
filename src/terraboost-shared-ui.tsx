@@ -1,4 +1,4 @@
-import "./output.css"; // Or potentially './input.css' if your webpack setup processes it further
+import "./input.css"; // Changed from output.css to input.css
 
 // Anything exported from this file is importable by other in-browser modules.
 export function publicApiFunction() {}
