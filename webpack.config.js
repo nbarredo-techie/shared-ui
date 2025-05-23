@@ -1,6 +1,7 @@
 const { merge } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-react-ts");
 const path = require("path");
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
@@ -12,13 +13,7 @@ module.exports = (webpackConfigEnv, argv) => {
   });
 
   return {
-    ...defaultConfig,
-    // Explicitly define externals, especially if outputSystemJS is false
-    externals: [
-      ...(defaultConfig.externals || []), // Spread any existing externals from defaultConfig
-      "react",
-      "react-dom",
-    ],
+    ...defaultConfig, 
     resolve: {
       ...defaultConfig.resolve,
       alias: {
@@ -54,5 +49,35 @@ module.exports = (webpackConfigEnv, argv) => {
       ...defaultConfig.devServer, // Spread existing devServer config from singleSpaDefaults
       port: 8081, // Set the port to 8081
     },
+    plugins: [
+      ...(defaultConfig.plugins || []),
+      new ModuleFederationPlugin({
+        name: "shared_ui",
+        filename: "remoteEntry.js",
+        exposes: {
+          "./react": "react",
+          "./react-dom": "react-dom",
+          "./react-dom/client": "react-dom/client",
+        },
+        shared: {
+          react: {
+            singleton: true,
+            requiredVersion: defaultConfig.externals.find(
+              (external) => external === "react" || (typeof external === "object" && external.react)
+            )?.react || require("./package.json").dependencies.react || require("./package.json").devDependencies.react,
+          },
+          "react-dom": {
+            singleton: true,
+            requiredVersion: defaultConfig.externals.find(
+              (external) => external === "react-dom" || (typeof external === "object" && external["react-dom"])
+            )?.["react-dom"] || require("./package.json").dependencies["react-dom"] || require("./package.json").devDependencies["react-dom"],
+          },
+          "react-dom/client": {
+            singleton: true,
+            requiredVersion: require("./package.json").dependencies["react-dom"] || require("./package.json").devDependencies["react-dom"],
+          },
+        },
+      }),
+    ],
   };
 };
