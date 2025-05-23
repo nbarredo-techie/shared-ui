@@ -8,11 +8,17 @@ module.exports = (webpackConfigEnv, argv) => {
     projectName: "shared-ui",
     webpackConfigEnv,
     argv,
-    outputSystemJS: false,
+    outputSystemJS: false, // This often means externals aren't set up by default for react
   });
 
   return {
     ...defaultConfig,
+    // Explicitly define externals, especially if outputSystemJS is false
+    externals: [
+      ...(defaultConfig.externals || []), // Spread any existing externals from defaultConfig
+      "react",
+      "react-dom",
+    ],
     resolve: {
       ...defaultConfig.resolve,
       alias: {
