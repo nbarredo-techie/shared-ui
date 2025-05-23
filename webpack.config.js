@@ -1,7 +1,6 @@
 const { merge } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-react-ts");
 const path = require("path");
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
@@ -13,7 +12,12 @@ module.exports = (webpackConfigEnv, argv) => {
   });
 
   return {
-    ...defaultConfig, 
+    ...defaultConfig,
+    // Explicitly define externals, especially if outputSystemJS is false
+    externals: [
+      "react",
+      "react-dom",
+    ],
     resolve: {
       ...defaultConfig.resolve,
       alias: {
@@ -52,27 +56,6 @@ module.exports = (webpackConfigEnv, argv) => {
     },
     plugins: [
       ...(defaultConfig.plugins || []),
-      new  ModuleFederationPlugin({
-        name: "shared_ui",
-        filename: "remoteEntry.js",
-        remotes: {
-          root_config: "root_config@https://white-pond-0db5ebd10.6.azurestaticapps.net/remoteEntry.js",
-        },
-        shared: { 
-          react: {
-            singleton: true,
-            requiredVersion: false,
-          },
-          "react-dom": {
-            singleton: true,
-            requiredVersion: false,
-          },
-          "react-dom/client": {
-            singleton: true,
-            requiredVersion: false,
-          } 
-        },
-      })
     ],
   };
 };
