@@ -52,7 +52,7 @@ module.exports = (webpackConfigEnv, argv) => {
     },
     plugins: [
       ...(defaultConfig.plugins || []),
-      new webpack.container.ModuleFederationPlugin({
+      new  ModuleFederationPlugin({
         name: "shared_ui",
         filename: "remoteEntry.js",
         remotes: {
