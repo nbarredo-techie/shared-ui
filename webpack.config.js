@@ -49,5 +49,10 @@ module.exports = (webpackConfigEnv, argv) => {
         },
       ],
     },
+    // Add or override the devServer configuration
+    devServer: {
+      ...defaultConfig.devServer, // Spread existing devServer config from singleSpaDefaults
+      port: 8081, // Set the port to 8081
+    },
   };
 };
