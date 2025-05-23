@@ -52,11 +52,7 @@
     "webpack-dev-server": "^4.0.0",
     "webpack-merge": "^5.8.0"
   },
-  "dependencies": {
-    "@radix-ui/react-dialog": "^1.1.14",
-    "@radix-ui/react-separator": "^1.1.7",
-    "@radix-ui/react-slot": "^1.2.3",
-    "@radix-ui/react-tooltip": "^1.2.7",
+  "dependencies": { 
     "@tailwindcss/cli": "^4.1.7",
     "@tailwindcss/postcss": "^4.1.7",
     "@types/jest": "^27.0.1",
