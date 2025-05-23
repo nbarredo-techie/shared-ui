@@ -46,38 +46,33 @@ module.exports = (webpackConfigEnv, argv) => {
     },
     // Add or override the devServer configuration
     devServer: {
-      ...defaultConfig.devServer, // Spread existing devServer config from singleSpaDefaults
+      ...defaultConfig.devServer,  // Spread existing devServer config from singleSpaDefaults
+      hot: true,
       port: 8081, // Set the port to 8081
     },
     plugins: [
       ...(defaultConfig.plugins || []),
-      new ModuleFederationPlugin({
+      new webpack.container.ModuleFederationPlugin({
         name: "shared_ui",
         filename: "remoteEntry.js",
-        exposes: {
-          "./react": "react",
-          "./react-dom": "react-dom",
-          "./react-dom/client": "react-dom/client",
+        remotes: {
+          root_config: "root_config@https://white-pond-0db5ebd10.6.azurestaticapps.net/remoteEntry.js",
         },
-        shared: {
+        shared: { 
           react: {
             singleton: true,
-            requiredVersion: defaultConfig.externals.find(
-              (external) => external === "react" || (typeof external === "object" && external.react)
-            )?.react || require("./package.json").dependencies.react || require("./package.json").devDependencies.react,
+            requiredVersion: false,
           },
           "react-dom": {
             singleton: true,
-            requiredVersion: defaultConfig.externals.find(
-              (external) => external === "react-dom" || (typeof external === "object" && external["react-dom"])
-            )?.["react-dom"] || require("./package.json").dependencies["react-dom"] || require("./package.json").devDependencies["react-dom"],
+            requiredVersion: false,
           },
           "react-dom/client": {
             singleton: true,
-            requiredVersion: require("./package.json").dependencies["react-dom"] || require("./package.json").devDependencies["react-dom"],
-          },
+            requiredVersion: false,
+          } 
         },
-      }),
+      })
     ],
   };
 };
