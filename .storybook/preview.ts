@@ -1,5 +1,5 @@
-import { Preview } from '@storybook/react'
-
+import { Preview } from '@storybook/react' 
+import '../src/output.css';
 const preview: Preview = {
   parameters: {
     controls: {

@@ -1,5 +1,6 @@
-import '../src/styles/globals.css';
+import '../src/styles/globals.css'; 
 
+import '../src/output.css';
 const preview = {
   parameters: {
     controls: {
