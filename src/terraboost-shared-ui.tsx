@@ -1,8 +1,6 @@
 // Import Tailwind CSS styles (generated output)
 import "./output.css";
-
-// Anything exported from this file is importable by other in-browser modules.
-export function publicApiFunction() {}
+ 
 
 // Exporting components from the `components/ui` folder
 export { Button } from "./components/ui/button";

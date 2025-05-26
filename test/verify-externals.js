@@ -2,7 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const bundlePath = path.join(__dirname, "dist", "terrabost-shared-ui.js");
+const bundlePath = path.join(__dirname, "dist", "terraboost-shared-ui.js");
 
 try {
   const bundleContent = fs.readFileSync(bundlePath, "utf8");
