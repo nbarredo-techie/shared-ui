@@ -4,7 +4,7 @@ const path = require("path");
 
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
-    orgName: "terrabost",
+    orgName: "terraboost",
     projectName: "shared-ui",
     webpackConfigEnv,
     argv,
