@@ -1,3 +1,6 @@
+// Import Tailwind CSS styles (generated output)
+import "./output.css";
+
 // Anything exported from this file is importable by other in-browser modules.
 export function publicApiFunction() {}
 

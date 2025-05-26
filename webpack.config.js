@@ -12,25 +12,6 @@ module.exports = (webpackConfigEnv, argv) => {
   });
 
   return merge(defaultConfig, {
-    module: {
-      rules: [
-        {
-          test: /\.css$/i,
-          use: [
-            "style-loader",
-            "css-loader",
-            {
-              loader: "postcss-loader",
-              options: {
-                postcssOptions: {
-                  config: path.resolve(__dirname, "postcss.config.mjs"),
-                },
-              },
-            },
-          ],
-        },
-      ],
-    },
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
