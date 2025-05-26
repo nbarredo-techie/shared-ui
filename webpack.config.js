@@ -11,11 +11,8 @@ module.exports = (webpackConfigEnv, argv) => {
     outputSystemJS: false,
   });
 
-  return merge(defaultConfig, {
-    externals: {
-      react: "react",
-      "react-dom": "react-dom",
-    },
+  // Force externals to override any single-spa defaults
+  const config = merge(defaultConfig, {
     module: {
       rules: [
         {
@@ -41,4 +38,14 @@ module.exports = (webpackConfigEnv, argv) => {
       },
     },
   });
+
+  // Force override externals after merge to ensure they take precedence
+  config.externals = {
+    react: "react",
+    "react-dom": "react-dom",
+    "react/jsx-runtime": "react/jsx-runtime",
+    "react/jsx-dev-runtime": "react/jsx-dev-runtime",
+  };
+
+  return config;
 };
