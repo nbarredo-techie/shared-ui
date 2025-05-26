@@ -5,7 +5,7 @@
     "declarationDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["src/*"]
     }
   },
   "files": ["src/terrabost-shared-ui.tsx"],

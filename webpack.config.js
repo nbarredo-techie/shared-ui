@@ -35,5 +35,10 @@ module.exports = (webpackConfigEnv, argv) => {
         },
       ],
     },
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "src"),
+      },
+    },
   });
 };
