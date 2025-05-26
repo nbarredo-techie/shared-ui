@@ -10,9 +10,11 @@ export { Input } from "./components/ui/input";
 export { Separator } from "./components/ui/separator";
 export { Sheet, SheetTrigger, SheetClose } from "./components/ui/sheet";
 export { Skeleton } from "./components/ui/skeleton";
+export { AppSidebar } from "./components/ui/app-sidebar";
 export { TooltipProvider, Tooltip } from "./components/ui/tooltip";
 export {
   SidebarMenuButton,
   SidebarMenu,
   SidebarProvider,
+  SidebarTrigger
 } from "./components/ui/sidebar";
