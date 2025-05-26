@@ -8,3 +8,8 @@ export { Separator } from "../components/ui/separator";
 export { Sheet, SheetTrigger, SheetClose } from "../components/ui/sheet";
 export { Skeleton } from "../components/ui/skeleton";
 export { TooltipProvider, Tooltip } from "../components/ui/tooltip";
+export {
+  SidebarMenuButton,
+  SidebarMenu,
+  SidebarProvider,
+} from "../components/ui/sidebar";
