@@ -4,33 +4,20 @@ const path = require("path");
 
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
-    orgName: "terraboost",
+    orgName: "terrabost",
     projectName: "shared-ui",
     webpackConfigEnv,
     argv,
-    outputSystemJS: false, // This often means externals aren't set up by default for react
+    outputSystemJS: false,
   });
 
-  return {
-    ...defaultConfig,
-    // Explicitly define externals, especially if outputSystemJS is false
-    externals: [
-      "react",
-      "react-dom",
-    ],
-    resolve: {
-      ...defaultConfig.resolve,
-      alias: {
-        ...defaultConfig.resolve?.alias,
-        "@": path.resolve(__dirname, "src"),
-      },
+  return merge(defaultConfig, {
+    externals: {
+      react: "React",
+      "react-dom": "ReactDOM",
     },
     module: {
-      ...defaultConfig.module,
       rules: [
-        ...(defaultConfig.module?.rules?.filter(
-          (rule) => !rule.test || !rule.test.toString().includes("css")
-        ) || []),
         {
           test: /\.css$/i,
           use: [
@@ -40,7 +27,7 @@ module.exports = (webpackConfigEnv, argv) => {
               loader: "postcss-loader",
               options: {
                 postcssOptions: {
-                  config: path.resolve(__dirname, "postcss.config.js"),
+                  config: path.resolve(__dirname, "postcss.config.mjs"),
                 },
               },
             },
@@ -48,14 +35,5 @@ module.exports = (webpackConfigEnv, argv) => {
         },
       ],
     },
-    // Add or override the devServer configuration
-    devServer: {
-      ...defaultConfig.devServer,  // Spread existing devServer config from singleSpaDefaults
-      hot: true,
-      port: 8081, // Set the port to 8081
-    },
-    plugins: [
-      ...(defaultConfig.plugins || []),
-    ],
-  };
+  });
 };

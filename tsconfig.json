@@ -5,10 +5,10 @@
     "declarationDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./*"]
     }
   },
-  "files": ["src/terraboost-shared-ui.tsx"],
+  "files": ["src/terrabost-shared-ui.tsx"],
   "include": ["src/**/*"],
   "exclude": ["src/**/*.test*"]
 }
