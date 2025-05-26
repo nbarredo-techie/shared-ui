@@ -11,8 +11,7 @@ module.exports = (webpackConfigEnv, argv) => {
     outputSystemJS: false,
   });
 
-  // Force externals to override any single-spa defaults
-  const config = merge(defaultConfig, {
+  return merge(defaultConfig, {
     module: {
       rules: [
         {
@@ -37,15 +36,18 @@ module.exports = (webpackConfigEnv, argv) => {
         "@": path.resolve(__dirname, "src"),
       },
     },
+    // Merge externals with single-spa defaults instead of overriding
+    externals: [
+      ...(Array.isArray(defaultConfig.externals)
+        ? defaultConfig.externals
+        : [defaultConfig.externals]),
+      {
+        react: "react",
+        "react-dom": "react-dom",
+        "react/jsx-runtime": "react/jsx-runtime",
+        "react/jsx-dev-runtime": "react/jsx-dev-runtime",
+        "react-dom/client": "react-dom/client",
+      },
+    ].filter(Boolean),
   });
-
-  // Force override externals after merge to ensure they take precedence
-  config.externals = {
-    react: "react",
-    "react-dom": "react-dom",
-    "react/jsx-runtime": "react/jsx-runtime",
-    "react/jsx-dev-runtime": "react/jsx-dev-runtime",
-  };
-
-  return config;
 };
