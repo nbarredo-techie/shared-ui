@@ -19,11 +19,28 @@ jobs:
         with:
           version: 8
 
+      - name: Clean previous build artifacts
+        run: |
+          rm -rf dist/
+          rm -rf node_modules/.cache/
+          rm -rf .pnpm-store/
+
       - name: Install dependencies
         run: pnpm install
 
       - name: Build app
         run: pnpm build
+
+      - name: Clean remote deployment directory
+        uses: azure/cli@v1
+        with:
+          inlineScript: |
+            az storage blob delete-batch \
+              --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
+              --source '$web' \
+              --pattern 'shared-ui/*' \
+              --auth-mode key \
+              --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} || true
 
       - name: Upload to Azure Blob Storage (in mf-shell/)
         uses: azure/cli@v1
