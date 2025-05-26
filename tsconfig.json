@@ -8,7 +8,7 @@
       "@/*": ["src/*"]
     }
   },
-  "files": ["src/terrabost-shared-ui.tsx"],
+  "files": ["src/terraboost-shared-ui.tsx"],
   "include": ["src/**/*"],
   "exclude": ["src/**/*.test*"]
 }
