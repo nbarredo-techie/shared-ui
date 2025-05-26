@@ -15,7 +15,6 @@ module.exports = (webpackConfigEnv, argv) => {
     externals: {
       react: "react",
       "react-dom": "react-dom",
-      "react-dom/client": "react-dom/client",
     },
     module: {
       rules: [
