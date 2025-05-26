@@ -1,10 +1,11 @@
 {
   "name": "@terraboost/shared-ui",
   "scripts": {
-    "start": "webpack serve",
-    "start:standalone": "webpack serve --env standalone",
+    "start": "concurrently \"webpack serve --hot\" \"pnpm tailwindcss -i ./src/input.css -o ./src/output.css --watch\"",
+    "start:standalone": "concurrently \"webpack serve --env standalone --hot\" \"pnpm tailwindcss -i ./src/input.css -o ./src/output.css --watch\"",
     "build": "concurrently pnpm:build:*",
     "build:webpack": "webpack --mode=production",
+    "build:tailwind": "pnpm tailwindcss -i ./src/input.css -o ./src/output.css",
     "analyze": "webpack --mode=production --env analyze",
     "lint": "eslint src --ext js,ts,tsx",
     "format": "prettier --write .",

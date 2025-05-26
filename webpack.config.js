@@ -17,6 +17,10 @@ module.exports = (webpackConfigEnv, argv) => {
         "@": path.resolve(__dirname, "src"),
       },
     },
+    devServer: {
+      hot: true,
+      liveReload: true,
+    },
     // Use single-spa defaults and add JSX runtime externals
     externals: [
       ...defaultConfig.externals,
