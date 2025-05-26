@@ -10,9 +10,18 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
- 
 
-export function AppSidebar({items}) {
+export interface SidebarItem {
+  id: number;
+  title: string;
+  url: string;
+}
+
+export interface AppSidebarProps {
+  items: SidebarItem[];
+}
+
+export function AppSidebar({ items }: AppSidebarProps) {
   return (
     <Sidebar>
       <SidebarContent>
