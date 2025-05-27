@@ -17,9 +17,7 @@ module.exports = (webpackConfigEnv, argv) => {
         "@": path.resolve(__dirname, "src"),
       },
     },
-    devServer: {
-      hot: true,
-      liveReload: true,
+    devServer: { 
       port: 8081,
     },
     // Use single-spa defaults and add JSX runtime externals
