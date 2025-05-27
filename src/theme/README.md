@@ -13,8 +13,8 @@ This shared library exports theme components that can be used across your microf
 ### 1. Wrap your root component with ThemeProvider
 
 ```tsx
-import React from 'react';
-import { ThemeProvider } from 'terraboost-shared-ui';
+import React from "react";
+import { ThemeProvider } from "terraboost-shared-ui";
 
 function App() {
   return (
@@ -30,8 +30,8 @@ export default App;
 ### 2. Use the ThemeToggle component
 
 ```tsx
-import React from 'react';
-import { ThemeToggle } from 'terraboost-shared-ui';
+import React from "react";
+import { ThemeToggle } from "terraboost-shared-ui";
 
 function Header() {
   return (
@@ -46,18 +46,16 @@ function Header() {
 ### 3. Use the useTheme hook for custom theme logic
 
 ```tsx
-import React from 'react';
-import { useTheme } from 'terraboost-shared-ui';
+import React from "react";
+import { useTheme } from "terraboost-shared-ui";
 
 function CustomComponent() {
   const { theme, setTheme } = useTheme();
-  
+
   return (
     <div>
       <p>Current theme: {theme}</p>
-      <button onClick={() => setTheme('dark')}>
-        Switch to Dark
-      </button>
+      <button onClick={() => setTheme("dark")}>Switch to Dark</button>
     </div>
   );
 }
@@ -66,7 +64,7 @@ function CustomComponent() {
 ## Theme Values
 
 - `"light"` - Light theme
-- `"dark"` - Dark theme  
+- `"dark"` - Dark theme
 - `"system"` - Follow system preference
 
 ## CSS Classes

@@ -20,6 +20,7 @@ module.exports = (webpackConfigEnv, argv) => {
     devServer: {
       hot: true,
       liveReload: true,
+      port: 8081,
     },
     // Use single-spa defaults and add JSX runtime externals
     externals: [

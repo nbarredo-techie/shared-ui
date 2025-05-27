@@ -12,7 +12,7 @@ try {
   console.log(
     "File size:",
     Math.round((statsContent.length / 1024 / 1024) * 100) / 100,
-    "MB"
+    "MB",
   );
 
   console.log("Parsing JSON...");
@@ -25,7 +25,7 @@ try {
   console.log("Build Time:", stats.time ? `${stats.time}ms` : "Unknown");
   console.log(
     "Built At:",
-    stats.builtAt ? new Date(stats.builtAt).toISOString() : "Unknown"
+    stats.builtAt ? new Date(stats.builtAt).toISOString() : "Unknown",
   );
 
   // Assets analysis
@@ -50,7 +50,7 @@ try {
     // Total bundle size
     const totalSize = stats.assets.reduce(
       (sum, asset) => sum + (asset.size || 0),
-      0
+      0,
     );
     const totalSizeMB = Math.round((totalSize / 1024 / 1024) * 100) / 100;
     console.log(`\nTotal Bundle Size: ${totalSizeMB}MB`);
@@ -150,11 +150,11 @@ try {
 
   console.log("\n=== OPTIMIZATION RECOMMENDATIONS ===");
   console.log(
-    "1. Check the largest assets and modules above for optimization opportunities"
+    "1. Check the largest assets and modules above for optimization opportunities",
   );
   console.log("2. Consider code splitting for large chunks");
   console.log(
-    "3. Review NPM packages - consider lighter alternatives for the largest ones"
+    "3. Review NPM packages - consider lighter alternatives for the largest ones",
   );
   console.log("4. Use webpack-bundle-analyzer for visual analysis");
   console.log("5. Consider dynamic imports for non-critical modules");

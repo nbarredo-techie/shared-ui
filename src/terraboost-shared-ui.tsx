@@ -1,6 +1,5 @@
 // Import Tailwind CSS styles (generated output)
 import "./output.css";
- 
 
 // Exporting components from the `components/ui` folder
 export { Button } from "./components/ui/button";
@@ -20,7 +19,7 @@ export {
   SidebarMenuButton,
   SidebarMenu,
   SidebarProvider,
-  SidebarTrigger
+  SidebarTrigger,
 } from "./components/ui/sidebar";
 
 // Export theme components

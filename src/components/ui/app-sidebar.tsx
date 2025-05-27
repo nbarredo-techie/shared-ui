@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
 
 import {
   Sidebar,
@@ -9,7 +9,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 export interface SidebarItem {
   id: number;
@@ -32,7 +32,7 @@ export function AppSidebar({ items }: AppSidebarProps) {
               {items.map((item) => (
                 <SidebarMenuItem key={item.id}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}> 
+                    <a href={item.url}>
                       <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
@@ -43,5 +43,5 @@ export function AppSidebar({ items }: AppSidebarProps) {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  )
+  );
 }

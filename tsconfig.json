@@ -4,6 +4,9 @@
     "jsx": "react-jsx",
     "declarationDir": "dist",
     "baseUrl": ".",
+    "lib": ["ES2022", "DOM"],
+    "target": "ES2022",
+    "skipLibCheck": true,
     "paths": {
       "@/*": ["src/*"]
     },
@@ -11,5 +14,5 @@
   },
   "files": ["src/terraboost-shared-ui.tsx"],
   "include": ["src/**/*"],
-  "exclude": ["src/**/*.test*"]
+  "exclude": ["src/**/*.test*", "src/**/*.stories*", "node_modules"]
 }

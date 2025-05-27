@@ -9,7 +9,7 @@ try {
 
   console.log("🔍 Shared-UI Bundle Analysis:");
   console.log(
-    `📦 Bundle Size: ${(fs.statSync(bundlePath).size / 1024).toFixed(2)} KB`
+    `📦 Bundle Size: ${(fs.statSync(bundlePath).size / 1024).toFixed(2)} KB`,
   );
 
   // Check for external imports (ES module format)
@@ -28,7 +28,7 @@ try {
   console.log("\n🔗 External Dependencies:");
   console.log(`✅ React externalized: ${hasReactExternal ? "YES" : "NO"}`);
   console.log(
-    `✅ ReactDOM externalized: ${hasReactDOMExternal ? "YES" : "NO"}`
+    `✅ ReactDOM externalized: ${hasReactDOMExternal ? "YES" : "NO"}`,
   );
   console.log(`✅ JSX Runtime externalized: ${hasJSXRuntime ? "YES" : "NO"}`);
 
@@ -37,7 +37,7 @@ try {
   const hasReactInternals =
     bundleContent.includes("ReactCurrentOwner") ||
     bundleContent.includes(
-      "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED"
+      "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED",
     );
   const hasReactFiber =
     bundleContent.includes("FiberNode") ||
@@ -48,16 +48,16 @@ try {
   console.log(
     `❌ Contains React internals: ${
       hasReactInternals ? "YES (PROBLEM!)" : "NO"
-    }`
+    }`,
   );
   console.log(
-    `❌ Contains React Fiber: ${hasReactFiber ? "YES (PROBLEM!)" : "NO"}`
+    `❌ Contains React Fiber: ${hasReactFiber ? "YES (PROBLEM!)" : "NO"}`,
   );
 
   // Size analysis
   if (fs.statSync(bundlePath).size > 50000) {
     console.log(
-      "\n⚠️  Bundle is suspiciously large (>50KB) - may contain bundled React"
+      "\n⚠️  Bundle is suspiciously large (>50KB) - may contain bundled React",
     );
   }
 
@@ -65,7 +65,7 @@ try {
     console.log("\n🎉 Shared-UI Externalization: SUCCESS!");
   } else {
     console.log(
-      "\n❌ Shared-UI may be bundling React internally - this could cause conflicts!"
+      "\n❌ Shared-UI may be bundling React internally - this could cause conflicts!",
     );
   }
 

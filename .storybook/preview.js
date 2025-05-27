@@ -1,12 +1,12 @@
-import '../src/styles/globals.css'; 
+import "../src/styles/globals.css";
 
-import '../src/output.css';
+import "../src/output.css";
 const preview = {
   parameters: {
     controls: {
       matchers: {
-       color: /(background|color)$/i,
-       date: /Date$/i,
+        color: /(background|color)$/i,
+        date: /Date$/i,
       },
     },
   },
